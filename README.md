@@ -3,7 +3,7 @@
 A sleek, enterprise-ready, frontend-driven administrative application designed for tracking student directories, managing branch logistics, monitoring key metric performance, and downloading live operational reports.
 
 ## 🌍 Live Demonstration
-* **Live Link:** [Paste your GitHub Pages URL here once it is live!]
+* **Live Link:** (https://chaitud2006.github.io/student-management-system/)
 * **Admin Credentials:** * **Username:** `admin`
     * **Password:** `admin123`
 
@@ -33,4 +33,6 @@ A sleek, enterprise-ready, frontend-driven administrative application designed f
 
 1. **Clone or Download the Repository:**
    ```bash
-   git clone [https://github.com/YOUR-USERNAME/student-management-system.git](https://github.com/YOUR-USERNAME/student-management-system.git)
+   1. **Clone or Download the Repository:**
+   ```bash
+   git clone [https://github.com/chaitud2006/student-management-system.git](https://github.com/chaitud2006/student-management-system.git)
