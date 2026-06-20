@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Student Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">🎓 Student Management System</div>
+        <div class="nav-actions" style="display: flex; gap: 10px; align-items: center;">
+            <button id="themeToggleBtn" class="theme-btn" style="width: auto; margin-bottom: 0; padding: 8px 14px; background: rgba(255,255,255,0.15); color: white;">🌙 Dark Mode</button>
+            <button id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        
+        <section class="stats-section">
+            <div class="card total-card">
+                <h3>Total Students</h3>
+                <p id="totalCount">0</p>
+            </div>
+            <div class="card cse-card">
+                <h3>CSE</h3>
+                <p id="cseCount">0</p>
+            </div>
+            <div class="card aids-card">
+                <h3>AI & DS</h3>
+                <p id="aidsCount">0</p>
+            </div>
+            <div class="card ece-card">
+                <h3>ECE</h3>
+                <p id="eceCount">0</p>
+            </div>
+            <div class="card mech-card">
+                <h3>Mechanical</h3>
+                <p id="mechCount">0</p>
+            </div>
+        </section>
+
+        <div class="main-content">
+            
+            <div class="form-container">
+                <h2>📝 Student Registration Form</h2>
+                <form id="studentForm">
+                    <input type="hidden" id="editIndex" value="-1">
+                    
+                    <div class="form-group">
+                        <label for="studentId">Student ID</label>
+                        <input type="text" id="studentId" placeholder="e.g., STU101" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentName">Full Name</label>
+                        <input type="text" id="studentName" placeholder="Enter full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentEmail">Email Address</label>
+                        <input type="email" id="studentEmail" placeholder="name@school.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentPhone">Phone Number</label>
+                        <input type="tel" id="studentPhone" placeholder="10-digit number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentDept">Department</label>
+                        <select id="studentDept" required>
+                            <option value="">-- Select Department --</option>
+                            <option value="CSE">CSE</option>
+                            <option value="AI&DS">AI & DS</option>
+                            <option value="ECE">ECE</option>
+                            <option value="Mechanical">Mechanical</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentYear">Year</label>
+                        <select id="studentYear" required>
+                            <option value="1st Year">1st Year</option>
+                            <option value="2nd Year">2nd Year</option>
+                            <option value="3rd Year">3rd Year</option>
+                            <option value="4th Year">4th Year</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentAttendance">Attendance Percentage (%)</label>
+                        <input type="number" id="studentAttendance" min="0" max="100" placeholder="e.g., 85" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div class="radio-group">
+                            <input type="radio" id="male" name="gender" value="Male" checked>
+                            <label for="male">Male</label>
+                            <input type="radio" id="female" name="gender" value="Female">
+                            <label for="female">Female</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentAddress">Address</label>
+                        <textarea id="studentAddress" rows="3" placeholder="Enter home address" required></textarea>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="add-btn">Add Student</button>
+                    <button type="button" id="clearBtn" class="clear-btn">Clear Form</button>
+                </form>
+            </div>
+
+            <div class="table-container">
+               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 2px solid #f1f3f5; padding-bottom: 12px;">
+    <h2 style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">🔍 Student Records</h2>
+    <button id="exportCsvBtn" style="width: auto; margin-bottom: 0; padding: 8px 16px; background-color: #107c41; color: white; display: flex; align-items: center; gap: 6px;">
+        📥 Export to Excel (CSV)
+    </button>
+</div>
+                
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search by name or ID...">
+                    <select id="filterDept">
+                        <option value="All">All Departments</option>
+                        <option value="CSE">CSE</option>
+                        <option value="AI&DS">AI & DS</option>
+                        <option value="ECE">ECE</option>
+                        <option value="Mechanical">Mechanical</option>
+                    </select>
+                </div>
+
+                <div class="scroll-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Department</th>
+                                <th>Year</th>
+                                <th>Attendance</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentTableBody">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
