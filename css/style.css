@@ -1,0 +1,399 @@
+/* ==========================================
+   1. GLOBAL STYLES & RESET
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Default styling for the Dashboard background */
+body {
+    background-color: #f4f6f9;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* Special styling ONLY used on the login page body */
+.login-body {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Shared Buttons */
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* ==========================================
+   2. LOGIN CONTAINER
+   ========================================== */
+.login-container {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-container h2 {
+    color: #1e3c72;
+    margin-bottom: 8px;
+}
+
+.login-container p {
+    color: #666;
+    margin-bottom: 24px;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 6px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #1e3c72;
+    box-shadow: 0 0 0 3px rgba(30, 60, 114, 0.15);
+}
+
+.login-btn { background-color: #1e3c72; color: white; width: 100%; margin-bottom: 10px; }
+.login-btn:hover { background-color: #2a5298; }
+.reset-btn { background-color: #f8f9fa; color: #333; width: 100%; border: 1px solid #ddd; }
+.reset-btn:hover { background-color: #e9ecef; }
+
+
+/* ==========================================
+   3. PROFESSIONAL TOP NAVBAR
+   ========================================== */
+.navbar {
+    background-color: #1e3c72;
+    color: white;
+    padding: 0 40px;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.logout-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 6px;
+}
+
+.logout-btn:hover {
+    background-color: #bd2130;
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================
+   4. DASHBOARD CONTAINER & LAYOUT GRID
+   ========================================== */
+.dashboard-container {
+    padding: 40px;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+/* Statistics Counter Row */
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background: white;
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    text-align: left;
+    border-top: 4px solid #1e3c72;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card h3 {
+    font-size: 13px;
+    color: #6c757d;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card p {
+    font-size: 32px;
+    font-weight: 700;
+    color: #212529;
+}
+
+/* Accent Card Borders */
+.total-card { border-top-color: #1e3c72; }
+.cse-card { border-top-color: #28a745; }
+.aids-card { border-top-color: #6f42c1; }
+.ece-card { border-top-color: #fd7e14; }
+.mech-card { border-top-color: #ffc107; }
+
+
+/* ==========================================
+   5. WORKSPACE SIDE-BY-SIDE SPLIT
+   ========================================== */
+.main-content {
+    display: grid;
+    grid-template-columns: 350px 1fr; /* Set precise neat width for form side */
+    gap: 40px;
+    align-items: start;
+}
+
+@media (max-width: 1100px) {
+    .main-content {
+        grid-template-columns: 1fr; /* Stack on top of each other on tiny screens */
+    }
+}
+
+.form-container, .table-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    border: 1px solid #eaeaea;
+}
+
+.form-container h2, .table-container h2 {
+    font-size: 18px;
+    color: #212529;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #f1f3f5;
+    padding-bottom: 12px;
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   6. CONTROLS, INPUTS & FORMS
+   ========================================== */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 8px;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #495057;
+    outline: none;
+    background-color: #f8f9fa;
+    transition: all 0.2s ease;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    border-color: #1e3c72;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(30, 60, 114, 0.1);
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 6px 0;
+}
+
+.radio-group input {
+    width: auto;
+    cursor: pointer;
+}
+
+.add-btn { background-color: #28a745; color: white; width: 100%; margin-bottom: 12px; }
+.add-btn:hover { background-color: #218838; }
+.clear-btn { background-color: #6c757d; color: white; width: 100%; }
+.clear-btn:hover { background-color: #5a6268; }
+
+
+/* ==========================================
+   7. LIVE FILTERS & TABLES
+   ========================================== */
+.search-bar {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.search-bar input {
+    flex: 2;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.search-bar select {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+.scroll-table {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    text-align: left;
+}
+
+th {
+    background-color: #f8f9fa;
+    color: #495057;
+    font-weight: 600;
+    padding: 16px 12px;
+    border-bottom: 2px solid #dee2e6;
+}
+
+td {
+    padding: 16px 12px;
+    border-bottom: 1px solid #dee2e6;
+    color: #495057;
+}
+
+tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Action Utility Row buttons styling */
+.action-btn {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    width: auto;
+    margin: 0 3px;
+    display: inline-block;
+}
+
+.edit-btn { background-color: #007bff; color: white; }
+.edit-btn:hover { background-color: #0069d9; }
+.delete-btn { background-color: #dc3545; color: white; }
+.delete-btn:hover { background-color: #c82333; }
+/* ==========================================
+   8. DARK THEME OVERLAYS
+   ========================================== */
+body.dark-theme {
+    background-color: #121824;
+    color: #f8f9fa;
+}
+
+body.dark-theme .card, 
+body.dark-theme .form-container, 
+body.dark-theme .table-container {
+    background-color: #1e2640;
+    border-color: #2a3454;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+body.dark-theme .form-container h2, 
+body.dark-theme .table-container h2 {
+    color: #ffffff;
+    border-bottom-color: #2a3454;
+}
+
+body.dark-theme .form-group label,
+body.dark-theme th {
+    color: #cbd5e1;
+}
+
+body.dark-theme th {
+    background-color: #181f32;
+    border-bottom-color: #2a3454;
+}
+
+body.dark-theme td {
+    color: #e2e8f0;
+    border-bottom-color: #2a3454;
+}
+
+body.dark-theme tr:hover {
+    background-color: #1c233a;
+}
+
+body.dark-theme .form-group input, 
+body.dark-theme .form-group select, 
+body.dark-theme .form-group textarea,
+body.dark-theme .search-bar input,
+body.dark-theme .search-bar select {
+    background-color: #181f32;
+    border-color: #2a3454;
+    color: #ffffff;
+}
+
+body.dark-theme .card h3 {
+    color: #94a3b8;
+}
+
+body.dark-theme .card p {
+    color: #ffffff;
+}
